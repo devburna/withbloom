@@ -2,8 +2,8 @@ a {
     text-decoration: none;
 }
 
-.form-control-lg, .btn-lg {
-    font-size: 15px !important;
+.form-control-lg, .form-select-lg, .btn-lg {
+    font-size: 15px;
 }
 
 .fw-regular {

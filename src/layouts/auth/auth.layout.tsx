@@ -10,6 +10,6 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   return (
-    <main className='container py-4 p-md-5'>{children}</main>
+    <main className='container p-3 py-4 p-md-5'>{children}</main>
   )
 }
