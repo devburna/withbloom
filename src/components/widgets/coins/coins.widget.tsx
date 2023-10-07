@@ -7,7 +7,7 @@ const CoinsWidget = () => {
 
     useEffect(() => {
         searchCoins(keyword);
-    }, [keyword]);
+    }, [keyword, searchCoins]);
 
     return (
         <div className="row g-4">

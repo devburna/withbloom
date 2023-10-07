@@ -23,7 +23,7 @@ const ExchangeRateWidget = () => {
     useEffect(() => {
         const selectedCoin = coins.find(([key]: [any]) => key === formData.currency);
         setValue(selectedCoin);
-    }, [formData.currency]);
+    }, [formData.currency, coins]);
 
     useEffect(() => {
         searchCoins(keyword);
