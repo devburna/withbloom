@@ -16,11 +16,11 @@ const AuthForm = () => {
     };
 
     const handleLogin = () => {
-        authServices.firebase.login(formData)
+        authServices.login(formData)
     };
 
     const handleSignup = () => {
-        authServices.firebase.signup(formData)
+        authServices.signup(formData)
     };
 
     return (
@@ -54,7 +54,7 @@ const AuthForm = () => {
                 <button className="btn btn-primary btn-lg fw-regular lh-lg w-100" onClick={handleLogin}>Login</button>
             </div>
             <div className="col-6">
-                <button className="btn btn-primary btn-lg fw-regular lh-lg w-100" onClick={handleSignup}>Signup</button>
+                <button className="btn btn-outline-primary btn-lg fw-regular lh-lg w-100" onClick={handleSignup}>Signup</button>
             </div>
         </div>
     );

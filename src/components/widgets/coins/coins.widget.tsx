@@ -4,7 +4,7 @@ const CoinsWidget = (data: any) => {
     const items = Object.entries(data.data);
 
     const [keyword, setKeyword] = useState('');
-    const [filteredItems, setFilteredItems] = useState([...items]);
+    const [filteredItems, setFilteredItems] = useState(items);
 
     useEffect(() => {
         const filtered = items.filter((item) => item[0].toLowerCase().includes(keyword.toLowerCase()));
@@ -20,7 +20,7 @@ const CoinsWidget = (data: any) => {
             </div>
             <div className="col-12">
                 <div className="list-group lh-lg small">{
-                    filteredItems.length ? (filteredItems || items).map(([key, value]) => {
+                    filteredItems.length ? filteredItems.map(([key, value]) => {
                         return (
                             <div className="list-group-item d-flex align-items-center justify-content-between py-3" key={key}>
                                 <div>

@@ -1,3 +1,4 @@
+import authServices from "@/services/auth/auth.services";
 import Link from "next/link";
 
 const items = [
@@ -24,9 +25,9 @@ const Sidebar = () => {
                     </Link>)
                 })
             }
-            <Link href="/" className="list-group-item border-0 rounded-0 fw-regular text-danger px-5 mt-auto mb-5">
+            <button type="button" onClick={authServices.logout} className="list-group-item border-0 rounded-0 fw-regular text-start text-danger px-5 mb-5 mt-auto">
                 Logout
-            </Link>
+            </button>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { auth } from '@/lib/firebase/firebase.lib';
 
 const AuthContext = createContext();
 
-export const useAuth = () => {
+export const useAuthContext = () => {
     return useContext(AuthContext);
 };
 
@@ -22,7 +22,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return () => {
             unsubscribe();
         };
-    }, []);
+    }, [user]);
 
     return (
         <AuthContext.Provider value={user}>
