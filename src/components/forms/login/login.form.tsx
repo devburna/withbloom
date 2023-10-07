@@ -65,7 +65,7 @@ const LoginForm = () => {
             </div>
             <div className="col-lg-12">
                 <span className="text-muted small">
-                    Don't have an account <Link href="/signup" className="fw-regular">
+                    Do not have an account <Link href="/signup" className="fw-regular">
                         Signup
                     </Link>
                 </span>
