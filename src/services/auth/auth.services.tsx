@@ -1,10 +1,10 @@
-import firebase from "@/lib/firebase/firebase.lib";
 import Router from "next/router";
+import { auth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "@/lib/firebase/firebase.lib";
 
 export default {
     firebase: {
         signup: (payload: Auth) => {
-            firebase.createUserWithEmailAndPassword(firebase.auth, payload.email, payload.password)
+            createUserWithEmailAndPassword(auth, payload.email, payload.password)
                 .then((userCredential) => {
                     const user = userCredential.user;
 
@@ -21,7 +21,7 @@ export default {
                 });
         },
         login: (payload: Auth) => {
-            firebase.signInWithEmailAndPassword(firebase.auth, payload.email, payload.password)
+            signInWithEmailAndPassword(auth, payload.email, payload.password)
                 .then((userCredential) => {
                     const user = userCredential.user;
 
@@ -36,7 +36,7 @@ export default {
                 });
         },
         user: () => {
-            return firebase.onAuthStateChanged(firebase.auth, (user) => {
+            return onAuthStateChanged(auth, (user) => {
                 if (user) {
                     console.log(user);
                     return user;
@@ -46,7 +46,7 @@ export default {
             });
         },
         logout: async () => {
-            await firebase.signOut(firebase.auth).then(res => {
+            await signOut(auth).then(res => {
                 console.log(res);
                 Router.push('/');
             }).catch(err => {

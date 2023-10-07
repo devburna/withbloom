@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import AuthLayout from "@/layouts/auth/auth.layout";
-import ExchangeRateWidget from "@/components/widgets/exchange-rate/exchante-rate.widget";
+import ExchangeRateWidget from "@/components/form/exchange-rate/exchante-rate.form";
 import coinprofile from "@/lib/coinprofile/coinprofile.lib";
 
 const ExchangeRatePage = () => {
@@ -14,19 +14,15 @@ const ExchangeRatePage = () => {
     }, []);
 
     return (
-        <AuthLayout>
+        <AuthLayout pageName="Exchange Rate">
             <div className="row g-4 justify-content-center">
-                <div className="col-lg-6">
-                    <h5 className="text-dark mb-1">Exchange Rate</h5>
-                    <span className="small">Discover new coins and their market rates.</span>
-                </div>
-                <div className="col-12 mt-0"></div>
-                <div className="col-lg-6">
-                    <ExchangeRateWidget data={coinlist} />
+                <div className="col-md-9 col-lg-7 col-xxl-5 d-none d-lg-block">
+                    <h4 className="text-dark mb-1">Discover new coins and their market rates</h4>
+                    <span className="text-muted small">You type how much you have in currency A and see how much you get in currency B.</span>
                 </div>
                 <div className="col-12"></div>
-                <div className="col-lg-6">
-                    <Link className="btn btn-primary btn-sm fw-regular lh-lg px-3" href="/dashboard/">View all coins</Link>
+                <div className="col-md-9 col-lg-7 col-xxl-5">
+                    <ExchangeRateWidget data={coinlist} />
                 </div>
             </div>
         </AuthLayout >
