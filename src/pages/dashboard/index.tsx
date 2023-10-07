@@ -30,6 +30,9 @@ const DashboardPage = () => {
                 <div className="col-lg-10">
                     <CoinsWidget data={coinlist} />
                 </div>
+                <div className="col-lg-10">
+                    <button className="btn btn-danger btn-sm fw-regular lh-lg px-3" >Logout</button>
+                </div>
             </div>
         </AuthLayout>
     )
