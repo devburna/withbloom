@@ -32,7 +32,7 @@ export default function AuthLayout({
                 <AppBar page={title} />
               </div>
               <div className="col-12">
-                <div className="container py-4 py-lg-5">{children}</div>
+                <div className="p-2 py-4 py-lg-5">{children}</div>
               </div>
               <div className="col-12 d-block d-xl-none"><div className="py-5"></div></div>
               <div className="col-12 fixed-bottom d-block d-xl-none p-0">

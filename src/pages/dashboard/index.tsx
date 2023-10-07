@@ -12,7 +12,7 @@ const DashboardPage = () => {
             <div className="row g-4 justify-content-center">
                 <div className="col-lg-10">
                     <h4>Hi {user.displayName || user.email} </h4>
-                    <p className="text-muted small">{des}</p>
+                    <p className="text-muted small mb-0">{des}</p>
                 </div>
                 <div className="col-lg-10">
                     <CoinsWidget />

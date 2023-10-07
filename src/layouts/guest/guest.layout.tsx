@@ -22,13 +22,13 @@ export default function GuestLayout({
         <div className="row justify-content-center py-lg-5">
           <div className="col-lg-5">
             <div className="card p-md-4">
-              <div className="card-header bg-transparent border-0">
+              <div className="card-header bg-transparent border-0 p-2 p-lg-3">
                 <div>
                   <h5>{title}</h5>
                   <p className="text-muted small">{description}</p>
                 </div>
               </div>
-              <div className="card-body">
+              <div className="card-body p-2 p-lg-3">
                 {children}
               </div>
             </div>
