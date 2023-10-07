@@ -34,6 +34,7 @@ const ExchangeRateWidget = () => {
                         type="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
+                        id="dismiss"
                     >
                         {formData.currency || 'Tap to select'}
                     </button>
@@ -51,22 +52,25 @@ const ExchangeRateWidget = () => {
                         </li>
                         {coins.length ? (
                             coins.map(([key]: [any]) => (
-                                <li key={key}>
-                                    <a
+                                <li key={key} >
+                                    <button
+                                        type="button"
                                         className="dropdown-item fw-regular py-2 small"
-                                        href="#"
                                         onClick={(e) => {
                                             e.preventDefault();
                                             handleInputChange({ target: { name: "currency", value: key } });
+                                            document.getElementById('dismiss')?.click();
                                         }}
                                     >
                                         {key}
-                                    </a>
+                                    </button>
                                 </li>
                             ))
                         ) : (
                             <li>
-                                <div className="dropdown-item bg-transparent py-2 small">No data found</div>
+                                <div className="dropdown-item py-2 small" onClick={(e) => {
+                                    document.getElementById('dismiss')?.click()
+                                }}>No data found</div>
                             </li>
                         )}
                     </ul>
