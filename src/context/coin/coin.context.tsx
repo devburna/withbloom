@@ -8,8 +8,8 @@ export const useCoinContext = () => {
 };
 
 export function CoinProvider({ children }: { children: React.ReactNode }) {
-    const [coins, setCoins] = useState([]);
-    const [searchKeyword, setSearchKeyword] = useState('');
+    const [coins, setCoins]: any = useState([]);
+    const [searchKeyword, setSearchKeyword]: any = useState('');
 
     useEffect(() => {
         const fetchData = coinprofile.listCoins().then((res: any) => {
@@ -25,7 +25,7 @@ export function CoinProvider({ children }: { children: React.ReactNode }) {
         setSearchKeyword(keyword);
     };
 
-    const filteredCoins = coins.filter((coin) =>
+    const filteredCoins = coins.filter((coin: any) =>
         coin[0].toLowerCase().includes(searchKeyword.toLowerCase())
     );
 

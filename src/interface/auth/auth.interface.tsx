@@ -1,4 +1,4 @@
-interface Auth {
+interface AuthInterface {
     email: string,
     password: string
 }

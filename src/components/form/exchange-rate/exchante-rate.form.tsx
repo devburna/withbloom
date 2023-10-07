@@ -3,7 +3,7 @@ import { useCoinContext } from "@/context/coin/coin.context";
 
 const ExchangeRateWidget = (data: any) => {
     const { coins, searchCoins }: any = useCoinContext();
-    const [value, setValue] = useState();
+    const [value, setValue]: any = useState();
 
     const [formData, setFormData] = useState({
         currency: "",
@@ -19,7 +19,7 @@ const ExchangeRateWidget = (data: any) => {
     };
 
     useEffect(() => {
-        const value = coins.find((item) => item[0] === formData.currency);
+        const value = coins.find((item: any) => item[0] === formData.currency);
 
         setValue(value)
 

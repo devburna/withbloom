@@ -17,6 +17,14 @@ const AuthForm = () => {
         });
     };
 
+    const handleLogin = () => {
+        login(formData)
+    };
+
+    const handleSignup = () => {
+        signup(formData)
+    };
+
     return (
         <div className="row g-4">
             <div className="col-12">
@@ -45,10 +53,10 @@ const AuthForm = () => {
             </div>
             <div className="col-12"></div>
             <div className="col-6">
-                <button className="btn btn-primary btn-lg fw-regular lh-lg w-100" onClick={login(formData)}>Login</button>
+                <button className="btn btn-primary btn-lg fw-regular lh-lg w-100" onClick={handleLogin}>Login</button>
             </div>
             <div className="col-6">
-                <button className="btn btn-outline-primary btn-lg fw-regular lh-lg w-100" onClick={signup(formData)}>Signup</button>
+                <button className="btn btn-outline-primary btn-lg fw-regular lh-lg w-100" onClick={handleSignup}>Signup</button>
             </div>
         </div>
     );

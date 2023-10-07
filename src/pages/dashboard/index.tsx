@@ -18,7 +18,7 @@ const DashboardPage = () => {
         <AuthLayout pageName="Dashboard">
             <div className="row g-4 justify-content-center">
                 <div className="col-lg-10">
-                    <h4>Hi {user?.displayName} 👋🏼</h4>
+                    <h4>Hi {user?.displayName} </h4>
                     <p className="text-muted small">Welcome to your WithBloom dashboard, you can browse a list of coins, search for a specific coin, and apply filters based on the coin's attributes.</p>
                 </div>
                 <div className="col-lg-10">

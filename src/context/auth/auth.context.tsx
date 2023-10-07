@@ -11,7 +11,7 @@ export const useAuthContext = () => {
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState({});
 
-    const signup = (payload: Auth) => {
+    const signup = (payload: AuthInterface) => {
         createUserWithEmailAndPassword(auth, payload.email, payload.password)
             .then((userCredential) => {
                 const user = userCredential.user;
@@ -29,7 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             });
     };
 
-    const login = (payload: Auth) => {
+    const login = (payload: AuthInterface) => {
         signInWithEmailAndPassword(auth, payload.email, payload.password)
             .then((userCredential) => {
                 const user = userCredential.user;

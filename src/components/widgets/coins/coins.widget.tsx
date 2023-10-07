@@ -3,7 +3,7 @@ import { useCoinContext } from "@/context/coin/coin.context";
 
 const CoinsWidget = (data: any) => {
     const { coins, searchCoins }: any = useCoinContext();
-    const [keyword, setKeyword] = useState('');
+    const [keyword, setKeyword]: any = useState('');
 
     useEffect(() => {
         searchCoins(keyword);
@@ -18,7 +18,7 @@ const CoinsWidget = (data: any) => {
             </div>
             <div className="col-12">
                 <div className="list-group lh-lg small">{
-                    coins.length ? coins.map(([key, value]) => {
+                    coins.length ? coins.map(([key, value]: [string, any]) => {
                         return (
                             <div className="list-group-item d-flex align-items-center justify-content-between py-3" key={key}>
                                 <div>
