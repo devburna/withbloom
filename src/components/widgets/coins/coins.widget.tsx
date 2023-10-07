@@ -22,7 +22,7 @@ const CoinsWidget = () => {
                         <table className="table lh-lg">
                             <thead className="small">
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Currency Pair</th>
                                     <th className="d-none d-md-block ">Key</th>
                                     <th className="text-end text-md-start">Rate</th>
                                 </tr>
