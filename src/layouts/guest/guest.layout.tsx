@@ -19,9 +19,15 @@ export default function GuestLayout({
       </Head>
 
       <main className="container py-5" id='guest'>
-        <div className="row justify-content-center py-5">
+        <div className="row justify-content-center py-lg-5">
           <div className="col-lg-5">
             <div className="card p-md-4">
+              <div className="card-header bg-transparent border-0">
+                <div>
+                  <h5>{title}</h5>
+                  <p className="text-muted small">{description}</p>
+                </div>
+              </div>
               <div className="card-body">
                 {children}
               </div>

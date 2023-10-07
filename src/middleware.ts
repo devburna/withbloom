@@ -3,14 +3,15 @@ import type { NextRequest } from 'next/server'
 import { auth } from './lib/firebase/firebase.lib';
 
 export function middleware(request: NextRequest) {
+
     // if (request.nextUrl.pathname.startsWith('/dashboard')) {
-    //     if (auth.currentUser) {
+    //     if (!auth.currentUser?.accessToken) {
     //         return NextResponse.redirect(new URL('/', request.url))
     //     }
     // }
 
     // if (request.nextUrl.pathname.endsWith('/')) {
-    //     if (!auth.currentUser) {
+    //     if (auth.currentUser?.accessToken) {
     //         return NextResponse.redirect(new URL('/dashboard', request.url))
     //     }
     // }

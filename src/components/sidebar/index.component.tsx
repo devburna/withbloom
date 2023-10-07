@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useAuthContext } from "@/context/auth/auth.context";
 
 const Sidebar = () => {
+    const router = useRouter();
+
     const { logout }: any = useAuthContext();
 
     const items = [
@@ -22,7 +25,7 @@ const Sidebar = () => {
             </div>
             {
                 items.map((value, key) => {
-                    return (<Link href={value.route} className="list-group-item border-0 rounded-0 fw-regular px-4" key={key}>
+                    return (<Link href={value.route} className={`list-group-item border-0 rounded fw-regular px-4 lh-lg ${router.pathname === value.route ? "active" : ""}`} key={key}>
                         {value.name}
                     </Link>)
                 })

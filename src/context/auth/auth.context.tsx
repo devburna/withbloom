@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@/lib/firebase/firebase.lib";
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "@/lib/firebase/firebase.lib";
 import Router from 'next/router';
 import { toast } from 'react-toastify';
 
@@ -14,8 +14,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const signup = (payload: AuthInterface) => {
         createUserWithEmailAndPassword(auth, payload.email, payload.password)
-            .then((userCredential) => {
-                const { user } = userCredential;
+            .then(async (userCredential) => {
+                await updateProfile(userCredential.user, { displayName: payload.username });
 
                 Router.push('/dashboard');
 
