@@ -17,7 +17,7 @@ export function CoinProvider({ children }: { children: React.ReactNode }) {
         })
 
         return () => {
-            fetchData();
+            fetchData;
         };
     }, []);
 

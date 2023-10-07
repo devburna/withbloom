@@ -20,5 +20,5 @@ export {
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut,
-    auth,
+    auth
 }

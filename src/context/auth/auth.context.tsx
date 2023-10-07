@@ -15,7 +15,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const signup = (payload: AuthInterface) => {
         createUserWithEmailAndPassword(auth, payload.email, payload.password)
             .then((userCredential) => {
-                const user = userCredential.user;
+                const { user } = userCredential;
 
                 Router.push('/dashboard');
 
@@ -28,7 +28,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const login = (payload: AuthInterface) => {
         signInWithEmailAndPassword(auth, payload.email, payload.password)
             .then((userCredential) => {
-                const user = userCredential.user;
+                const { user } = userCredential;
 
                 Router.push('/dashboard');
             })
@@ -38,8 +38,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
 
     const logout = () => {
-        auth.signOut().then(res => {
-            console.log(res);
+        auth.signOut().then(() => {
             Router.push('/');
         }).catch(error => {
             toast(error.message)

@@ -14,12 +14,14 @@ const DashboardPage = () => {
         })
     }, []);
 
+    const des = "Where you see a list of coins, you can search for a coin and can filter by coin.";
+
     return (
-        <AuthLayout pageName="Dashboard">
+        <AuthLayout title="Dashboard" description={des}>
             <div className="row g-4 justify-content-center">
                 <div className="col-lg-10">
                     <h4>Hi {user?.displayName} </h4>
-                    <p className="text-muted small">Welcome to your WithBloom dashboard, you can browse a list of coins, search for a specific coin, and apply filters based on the coin's attributes.</p>
+                    <p className="text-muted small">{des}</p>
                 </div>
                 <div className="col-lg-10">
                     <CoinsWidget data={coinlist} />

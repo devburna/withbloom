@@ -1,21 +1,21 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-// import { useAuthContext } from './context/auth/auth.context'
+import { auth } from './lib/firebase/firebase.lib';
 
 export function middleware(request: NextRequest) {
-    // const { user }: any = useAuthContext();
-
     // if (request.nextUrl.pathname.startsWith('/dashboard')) {
-    //     if (!user) {
+    //     if (auth.currentUser) {
     //         return NextResponse.redirect(new URL('/', request.url))
     //     }
     // }
 
     // if (request.nextUrl.pathname.endsWith('/')) {
-    //     if (user) {
+    //     if (!auth.currentUser) {
     //         return NextResponse.redirect(new URL('/dashboard', request.url))
     //     }
     // }
+
+    return NextResponse.next()
 }
 
 export const config = {

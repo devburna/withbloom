@@ -1,40 +1,46 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@/styles/css/globals.css';
-import '@/styles/css/responsive.css';
-
 import React from 'react';
+import Head from 'next/head';
 import Sidebar from '@/components/sidebar/index.component';
 import AppBar from '@/components/appbar/index.component';
 import BottomNav from '@/components/bottom-nav/index.component';
 
 export default function AuthLayout({
   children,
-  pageName
+  title,
+  description
 }: {
   children: React.ReactNode,
-  pageName: string
+  title: string,
+  description?: string
 }) {
   return (
-    <div className="container-fluid vh-100">
-      <div className="row g-4 h-100">
-        <div className="col-xl-3 col-xxl-2 position-fixed border-end d-none d-xl-block h-100">
-          <Sidebar />
-        </div>
-        <div className="col offset-xl-3 offset-xxl-2">
-          <div className="row">
-            <div className="col-12 sticky-top border-bottom">
-              <AppBar page={pageName} />
-            </div>
-            <div className="col-12">
-              <div className="container py-4 py-lg-5">{children}</div>
-            </div>
-            <div className="col-12 d-block d-xl-none"><div className="py-5"></div></div>
-            <div className="col-12 fixed-bottom d-block d-xl-none p-0">
-              <BottomNav />
+    <>
+      <Head>
+        <title>{title} - Bloom</title>
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+
+      <main className="container-fluid vh-100">
+        <div className="row g-4 h-100">
+          <div className="col-xl-3 col-xxl-2 position-fixed border-end d-none d-xl-block h-100">
+            <Sidebar />
+          </div>
+          <div className="col offset-xl-3 offset-xxl-2">
+            <div className="row">
+              <div className="col-12 sticky-top border-bottom">
+                <AppBar page={title} />
+              </div>
+              <div className="col-12">
+                <div className="container py-4 py-lg-5">{children}</div>
+              </div>
+              <div className="col-12 d-block d-xl-none"><div className="py-5"></div></div>
+              <div className="col-12 fixed-bottom d-block d-xl-none p-0">
+                <BottomNav />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </main></>
   )
 }

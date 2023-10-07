@@ -2,8 +2,10 @@ import AuthLayout from "@/layouts/auth/auth.layout";
 import ExchangeRateWidget from "@/components/form/exchange-rate/exchante-rate.form";
 
 const ExchangeRatePage = () => {
+    const title = "Discover new coins and their market rates";
+
     return (
-        <AuthLayout pageName="Exchange Rate">
+        <AuthLayout title="Exchange Rate" description={title}>
             <div className="row g-4 justify-content-center">
                 <div className="col-md-9 col-lg-7 col-xxl-5 d-none d-lg-block">
                     <h4 className="text-dark mb-1">Discover new coins and their market rates</h4>
