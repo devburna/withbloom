@@ -9,7 +9,7 @@ const ExchangeRatePage = () => {
 
     useEffect(() => {
         coinprofile.listCoins().then((res: any) => {
-            updateCoinlist(Object.entries(res.data.data.rates))
+            updateCoinlist(res.data.data.rates)
         })
     }, []);
 
