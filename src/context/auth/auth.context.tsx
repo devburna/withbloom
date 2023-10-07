@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@/lib/firebase/firebase.lib";
 import Router from 'next/router';
+import { toast } from 'react-toastify';
 
 const AuthContext = createContext();
 
@@ -20,12 +21,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-
-                console.log('errorCode: ', errorCode);
-                console.log('errorMessage: ', errorMessage);
-
+                toast(error.message)
             });
     };
 
@@ -37,11 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                 Router.push('/dashboard');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-
-                console.log('errorCode: ', errorCode);
-                console.log('errorMessage: ', errorMessage);
+                toast(error.message)
             });
     };
 
@@ -49,8 +41,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         auth.signOut().then(res => {
             console.log(res);
             Router.push('/');
-        }).catch(err => {
-            console.log(err);
+        }).catch(error => {
+            toast(error.message)
         })
     };
 
