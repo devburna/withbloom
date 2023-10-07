@@ -1,5 +1,5 @@
 import GuestLayout from "@/layouts/guest/guest.layout";
-import SignupForm from "@/components/form/signup/signup.form";
+import SignupForm from "@/components/forms/signup/signup.form";
 
 const SignupPage = () => {
   const title = "Create an Account";

@@ -9,3 +9,8 @@ a {
 .fw-regular {
     font-weight: 500;
 }
+
+.dropdown-menu {
+    height: 300px;
+    overflow: scroll;
+}

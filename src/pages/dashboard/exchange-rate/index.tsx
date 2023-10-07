@@ -1,5 +1,5 @@
 import AuthLayout from "@/layouts/auth/auth.layout";
-import ExchangeRateWidget from "@/components/form/exchange-rate/exchante-rate.form";
+import ExchangeRateWidget from "@/components/forms/exchange-rate/exchante-rate.form";
 
 const ExchangeRatePage = () => {
     const title = "Discover new coins and their market rates";

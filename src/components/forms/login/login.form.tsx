@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useAuthContext } from "@/context/auth/auth.context";
 import Link from "next/link";
 import { useLoadingContext } from "@/context/loading/loading.context";
+import Label from "@/components/forms/label/label.component";
+import Input from "@/components/forms/input/input.component";
 
 const LoginForm = () => {
     const { login }: any = useAuthContext();
@@ -31,10 +33,9 @@ const LoginForm = () => {
         <form id="login-form" onSubmit={handleLogin} className="row g-4">
             {loading ? <p>lpading</p> : ''}
             <div className="col-12">
-                <label htmlFor="email" className="fw-regular small mb-2">Email Address</label>
-                <input
+                <Label id="email" text="Email Address" />
+                <Input
                     form="login-form"
-                    className="form-control form-control-lg shadow-none lh-lg"
                     id="email"
                     type="email"
                     placeholder="Email Address"
@@ -45,20 +46,17 @@ const LoginForm = () => {
                 />
             </div>
             <div className="col-12">
-                <label htmlFor="password" className="fw-regular small mb-2">Password</label>
-                <div className="input-group">
-                    <input
-                        form="login-form"
-                        className="form-control form-control-lg shadow-none lh-lg"
-                        id="password"
-                        type="password"
-                        placeholder="Choose your password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleInputChange}
-                        required
-                    />
-                </div>
+                <Label id="password" text="Password" />
+                <Input
+                    form="login-form"
+                    id="password"
+                    type="password"
+                    placeholder="Choose your password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    required
+                />
             </div>
             <div className="col-12"></div>
             <div className="col-lg-12">
