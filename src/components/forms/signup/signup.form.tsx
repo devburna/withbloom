@@ -48,7 +48,8 @@ const SignupForm = () => {
                     form="signup-form"
                     id="email"
                     type="email"
-                    placeholder="Email Address"
+                    placeholder="Your email address"
+                    style="form-control-lg"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -62,6 +63,7 @@ const SignupForm = () => {
                     id="password"
                     type="password"
                     placeholder="Choose your password"
+                    style="form-control-lg"
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}

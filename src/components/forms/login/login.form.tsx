@@ -34,7 +34,8 @@ const LoginForm = () => {
                     form="login-form"
                     id="email"
                     type="email"
-                    placeholder="Email address"
+                    placeholder="Your email address"
+                    style="form-control-lg"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -48,6 +49,7 @@ const LoginForm = () => {
                     id="password"
                     type="password"
                     placeholder="Choose your password"
+                    style="form-control-lg"
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
