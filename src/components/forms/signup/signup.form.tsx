@@ -9,9 +9,9 @@ const SignupForm = () => {
     const { signup }: any = useAuthContext();
 
     const [formData, setFormData] = useState({
-        username: '',
-        email: '',
-        password: '',
+        username: "",
+        email: "",
+        password: "",
     });
 
     const handleInputChange = (e: any) => {
@@ -24,8 +24,7 @@ const SignupForm = () => {
 
     const handleSignup = (e: any) => {
         e.preventDefault();
-
-        signup(formData)
+        signup(formData);
     };
 
     return (
@@ -71,10 +70,20 @@ const SignupForm = () => {
             </div>
             <div className="col-12"></div>
             <div className="col-lg-12">
-                <Button form="login-form" type="submit" style="btn-primary btn-lg lh-lg w-100" text="Continue" />
+                <Button
+                    form="signup-form"
+                    type="submit"
+                    style="btn-primary btn-lg lh-lg w-100"
+                    text="Continue"
+                />
             </div>
             <div className="col-lg-12">
-                <span className="text-muted small">Already have an account? <Link href="/" className="fw-regular">Login</Link></span>
+                <span className="text-muted small">
+                    Already have an account?{' '}
+                    <Link href="/" className="fw-regular">
+                        Login
+                    </Link>
+                </span>
             </div>
         </form>
     );

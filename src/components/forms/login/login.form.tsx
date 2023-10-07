@@ -8,7 +8,6 @@ import Button from "@/components/forms/button/button.form";
 const LoginForm = () => {
     const { login }: any = useAuthContext();
 
-
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -24,7 +23,7 @@ const LoginForm = () => {
 
     const handleLogin = (e: any) => {
         e.preventDefault();
-        login(formData)
+        login(formData);
     };
 
     return (
@@ -57,10 +56,20 @@ const LoginForm = () => {
             </div>
             <div className="col-12"></div>
             <div className="col-lg-12">
-                <Button form="login-form" type="submit" style="btn-primary btn-lg lh-lg w-100" text="Continue" />
+                <Button
+                    form="login-form"
+                    type="submit"
+                    style="btn-primary btn-lg lh-lg w-100"
+                    text="Continue"
+                />
             </div>
             <div className="col-lg-12">
-                <span className="text-muted small">Don't have an account? <Link href="/signup" className="fw-regular">Signup</Link></span>
+                <span className="text-muted small">
+                    Don't have an account?{" "}
+                    <Link href="/signup" className="fw-regular">
+                        Signup
+                    </Link>
+                </span>
             </div>
         </form>
     );
