@@ -12,13 +12,9 @@ export function CoinProvider({ children }: { children: React.ReactNode }) {
     const [searchKeyword, setSearchKeyword]: any = useState('');
 
     useEffect(() => {
-        const fetchData = coinprofile.listCoins().then((res: any) => {
+        return coinprofile.listCoins().then((res: any) => {
             setCoins(Object.entries(res.data.data.rates))
         })
-
-        return () => {
-            fetchData;
-        };
     }, []);
 
     const searchCoins = (keyword: string) => {
