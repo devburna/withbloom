@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useAuthContext } from '@/context/auth/auth.context';
-import Link from 'next/link';
+import { useState } from "react";
+import { useAuthContext } from "@/context/auth/auth.context";
+import Link from "next/link";
 
 const LoginForm = () => {
     const { login }: any = useAuthContext();
 
     const [formData, setFormData] = useState({
-        email: '',
-        password: ''
+        email: "",
+        password: ""
     });
 
     const handleInputChange = (e: any) => {
