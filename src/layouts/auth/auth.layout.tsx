@@ -15,8 +15,8 @@ export default function AuthLayout({
   pageName: string
 }) {
   return (
-    <div className="container-fluid p-0 vh-100">
-      <div className="row g-3 h-100">
+    <div className="container-fluid vh-100">
+      <div className="row g-4 h-100">
         <div className="col-xl-3 col-xxl-2 position-fixed border-end d-none d-xl-block h-100">
           <Sidebar />
         </div>
