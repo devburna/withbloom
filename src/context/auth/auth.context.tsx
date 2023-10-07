@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "@/lib/firebase/firebase.lib";
 import Router from 'next/router';
 import { toast } from 'react-toastify';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "@/lib/firebase/firebase.lib";
 
 const AuthContext = createContext();
 

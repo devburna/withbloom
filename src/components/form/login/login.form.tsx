@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useAuthContext } from "@/context/auth/auth.context";
 import Link from "next/link";
+import { useLoadingContext } from "@/context/loading/loading.context";
 
 const LoginForm = () => {
     const { login }: any = useAuthContext();
+    const { loading, updateLoading }: any = useLoadingContext();
+
 
     const [formData, setFormData] = useState({
         email: "",
@@ -20,12 +23,13 @@ const LoginForm = () => {
 
     const handleLogin = (e: any) => {
         e.preventDefault();
-
+        updateLoading(true)
         login(formData)
     };
 
     return (
         <form id="login-form" onSubmit={handleLogin} className="row g-4">
+            {loading ? <p>lpading</p> : ''}
             <div className="col-12">
                 <label htmlFor="email" className="fw-regular small mb-2">Email Address</label>
                 <input

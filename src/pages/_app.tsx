@@ -1,6 +1,7 @@
+import { AppProps } from "next/app";
 import { AuthProvider } from "@/context/auth/auth.context";
 import { CoinProvider } from "@/context/coin/coin.context";
-import { AppProps } from "next/app";
+import { LoadingProvider } from "@/context/loading/loading.context";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/styles/css/globals.css';
@@ -11,12 +12,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function WithBloomApp({ Component, pageProps }: AppProps) {
   return (
-    <AuthProvider>
-      <CoinProvider>
-        <Component {...pageProps} />
-        <ToastContainer />
-      </CoinProvider>
-    </AuthProvider>
+    <LoadingProvider>
+      <AuthProvider>
+        <CoinProvider>
+          <Component {...pageProps} />
+          <ToastContainer />
+        </CoinProvider>
+      </AuthProvider>
+    </LoadingProvider>
   );
 }
 
