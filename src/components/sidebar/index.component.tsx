@@ -20,7 +20,7 @@ const Sidebar = () => {
 
     return (
         <div className="list-group rounded-0 gap-3 h-100">
-            <div className="list-group-item border-0 px-4 py-3">
+            <div className="list-group-item border-0 px-4 py-3 mb-4">
                 <strong className="d-block fs-4">Bl<span className="text-primary">o</span>om</strong>
             </div>
             {
