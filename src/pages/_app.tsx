@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { AppProps } from "next/app";
 import { AuthProvider } from "@/context/auth/auth.context";
 import { CoinProvider } from "@/context/coin/coin.context";
@@ -11,6 +12,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function WithBloomApp({ Component, pageProps }: AppProps) {
+
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
+
   return (
     <LoadingProvider>
       <AuthProvider>
