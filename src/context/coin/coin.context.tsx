@@ -1,31 +1,43 @@
 import coinprofile from '@/lib/coinprofile/coinprofile.lib';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const CoinContext = createContext();
+type CoinContextType = {
+    coins: any[];
+    searchCoins: (keyword: string) => void;
+};
+
+const CoinContext = createContext<CoinContextType | undefined>(undefined);
 
 export const useCoinContext = () => {
-    return useContext(CoinContext);
+    const context = useContext(CoinContext);
+    if (context === undefined) {
+        throw new Error('useCoinContext must be used within a CoinProvider');
+    }
+    return context;
 };
 
 export function CoinProvider({ children }: { children: React.ReactNode }) {
-    const [coins, setCoins]: any = useState([]);
-    const [searchKeyword, setSearchKeyword]: any = useState('');
+    const [coins, setCoins] = useState<any[]>([]);
+    const [searchKeyword, setSearchKeyword] = useState<string>('');
 
     useEffect(() => {
-        const fetchData = coinprofile.listCoins().then((res: any) => {
-            setCoins(Object.entries(res.data.data.rates))
-        })
-
-        return () => {
-            fetchData;
+        const fetchData = async () => {
+            try {
+                const res = await coinprofile.listCoins();
+                setCoins(Object.entries(res.data.data.rates));
+            } catch (error) {
+                console.error('Error fetching coin data:', error);
+            }
         };
+
+        fetchData();
     }, []);
 
     const searchCoins = (keyword: string) => {
         setSearchKeyword(keyword);
     };
 
-    const filteredCoins = coins.filter((coin: any) =>
+    const filteredCoins = coins.filter((coin) =>
         coin[0].toLowerCase().includes(searchKeyword.toLowerCase())
     );
 

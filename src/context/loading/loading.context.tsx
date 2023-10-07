@@ -1,20 +1,25 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const LoadingContext = createContext();
+type LoadingContextType = {
+    loading: boolean;
+    setLoading: (payload: boolean) => void;
+};
+
+const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
 
 export const useLoadingContext = () => {
-    return useContext(LoadingContext);
+    const context = useContext(LoadingContext);
+    if (context === undefined) {
+        throw new Error('useLoadingContext must be used within a LoadingProvider');
+    }
+    return context;
 };
 
 export function LoadingProvider({ children }: { children: React.ReactNode }) {
-    const [loading, setLoading]: any = useState(false);
-
-    const updateLoading = (payload: boolean) => {
-        return setLoading(payload);
-    }
+    const [loading, setLoading] = useState(false);
 
     return (
-        <LoadingContext.Provider value={{ loading, updateLoading }}>
+        <LoadingContext.Provider value={{ loading, setLoading }}>
             {children}
         </LoadingContext.Provider>
     );
