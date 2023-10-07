@@ -44,7 +44,8 @@ const ExchangeRateWidget = (data: any) => {
             </div>
             <div className="col-12 my-0">
                 <div className="input-group">
-                    <input id="value" type="text" className="form-control form-control-lg shadow-none fw-regular text-center fs-5 lh-lg p-3 px-4" name="value" value={formData.currency ? (Number(formData.amount) * data.data[formData.currency].rate) : 0} />
+                    <input id="value" type="text" className="form-control form-control-lg shadow-none fw-regular text-center fs-5 lh-lg p-3 px-4" name="value" value={formData.currency ? (Number(formData.amount) * data.data[formData.currency].rate) : 0} onChange={handleInputChange}
+                        disabled readOnly />
                 </div>
             </div>
         </div>
