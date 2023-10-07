@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useAuthContext } from "@/context/auth/auth.context";
 import Link from "next/link";
-import { useLoadingContext } from "@/context/loading/loading.context";
+import { useAuthContext } from "@/context/auth/auth.context";
 import Label from "@/components/forms/label/label.component";
 import Input from "@/components/forms/input/input.component";
+import Button from "@/components/forms/button/button.form";
 
 const LoginForm = () => {
     const { login }: any = useAuthContext();
-    const { loading, updateLoading }: any = useLoadingContext();
 
 
     const [formData, setFormData] = useState({
@@ -25,13 +24,11 @@ const LoginForm = () => {
 
     const handleLogin = (e: any) => {
         e.preventDefault();
-        updateLoading(true)
         login(formData)
     };
 
     return (
         <form id="login-form" onSubmit={handleLogin} className="row g-4">
-            {loading ? <p>lpading</p> : ''}
             <div className="col-12">
                 <Label id="email" text="Email Address" />
                 <Input
@@ -60,7 +57,7 @@ const LoginForm = () => {
             </div>
             <div className="col-12"></div>
             <div className="col-lg-12">
-                <button form="login-form" type="submit" className="btn btn-primary btn-lg fw-regular lh-lg w-100" >Continue</button>
+                <Button form="login-form" type="submit" style="btn-primary btn-lg lh-lg w-100" text="Continue" />
             </div>
             <div className="col-lg-12">
                 <span className="text-muted small">Don't have an account? <Link href="/signup" className="fw-regular">Signup</Link></span>

@@ -1,4 +1,5 @@
 import { useAuthContext } from "@/context/auth/auth.context";
+import Button from "@/components/forms/button/button.form";
 
 const AppBar = ({ page }: { page: string }) => {
     const { logout }: any = useAuthContext();
@@ -10,7 +11,7 @@ const AppBar = ({ page }: { page: string }) => {
                     <h6 className="fw-regular mb-0">{page}</h6>
                 </div>
                 <div className="col-auto">
-                    <button type="button" className="btn btn-outline-danger btn-sm" onClick={logout}>Logout</button>
+                    <Button type="button" style="btn-outline-danger btn-sm" text="Logout" onClick={logout} />
                 </div>
             </div>
         </div>

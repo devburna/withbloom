@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useAuthContext } from '@/context/auth/auth.context';
 import Link from 'next/link';
+import { useAuthContext } from '@/context/auth/auth.context';
 import Label from '@/components/forms/label/label.component';
 import Input from '@/components/forms/input/input.component';
+import Button from '@/components/forms/button/button.form';
 
 const SignupForm = () => {
     const { signup }: any = useAuthContext();
@@ -70,7 +71,7 @@ const SignupForm = () => {
             </div>
             <div className="col-12"></div>
             <div className="col-lg-12">
-                <button form="signup-form" type="submit" className="btn btn-primary btn-lg fw-regular lh-lg w-100" >Continue</button>
+                <Button form="login-form" type="submit" style="btn-primary btn-lg lh-lg w-100" text="Continue" />
             </div>
             <div className="col-lg-12">
                 <span className="text-muted small">Already have an account? <Link href="/" className="fw-regular">Login</Link></span>
