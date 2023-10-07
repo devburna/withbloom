@@ -2,7 +2,7 @@ import Router from 'next/router';
 import { toast } from 'react-toastify';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "@/lib/firebase/firebase.lib";
-import firebase from 'firebase/compat/app';
+import { useLoadingContext } from '../loading/loading.context';
 
 type AuthContextType = {
     login: (payload: AuthInterface) => Promise<void>;
@@ -23,30 +23,43 @@ export const useAuthContext = () => {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState({});
+    const { setLoading } = useLoadingContext();
 
     const signup = async (payload: AuthInterface) => {
+        setLoading(true);
+
         await createUserWithEmailAndPassword(auth, payload.email, payload.password).then(async (userCredential) => {
             await updateProfile(userCredential.user, { displayName: payload.username });
             Router.push('/dashboard');
         }).catch((error) => {
             toast.error(error.message);
-        });
+        }).finally(() => {
+            setLoading(false);
+        })
     };
 
     const login = async (payload: AuthInterface) => {
+        setLoading(true);
+
         await signInWithEmailAndPassword(auth, payload.email, payload.password).then(() => {
             Router.push('/dashboard');
         }).catch((error) => {
             toast.error(error.message);
-        });
+        }).finally(() => {
+            setLoading(false);
+        })
     };
 
     const logout = async () => {
+        setLoading(true);
+
         await auth.signOut().then(() => {
             Router.push('/');
         }).catch((error) => {
             toast.error(error.message);
-        });
+        }).finally(() => {
+            setLoading(false);
+        })
     };
 
     useEffect(() => {

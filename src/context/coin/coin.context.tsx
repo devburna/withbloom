@@ -1,5 +1,6 @@
 import coinprofile from '@/lib/coinprofile/coinprofile.lib';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { useLoadingContext } from '../loading/loading.context';
 
 type CoinContextType = {
     coins: any[];
@@ -19,14 +20,18 @@ export const useCoinContext = () => {
 export function CoinProvider({ children }: { children: React.ReactNode }) {
     const [coins, setCoins] = useState<any[]>([]);
     const [searchKeyword, setSearchKeyword] = useState<string>('');
+    const { setLoading } = useLoadingContext();
 
     useEffect(() => {
         const fetchData = async () => {
+            setLoading(true);
             try {
                 const res = await coinprofile.listCoins();
                 setCoins(Object.entries(res.data.data.rates));
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching coin data:', error);
+                setLoading(false);
             }
         };
 
