@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
+import { useCoinContext } from "@/context/coin/coin.context";
 
 const CoinsWidget = (data: any) => {
-    const items = Object.entries(data.data);
-
+    const { coins, searchCoins }: any = useCoinContext();
     const [keyword, setKeyword] = useState('');
-    const [filteredItems, setFilteredItems] = useState(items);
 
     useEffect(() => {
-        const filtered = items.filter((item) => item[0].toLowerCase().includes(keyword.toLowerCase()));
-        setFilteredItems(filtered);
+        searchCoins(keyword);
     }, [keyword]);
 
     return (
@@ -20,14 +18,14 @@ const CoinsWidget = (data: any) => {
             </div>
             <div className="col-12">
                 <div className="list-group lh-lg small">{
-                    filteredItems.length ? filteredItems.map(([key, value]) => {
+                    coins.length ? coins.map(([key, value]) => {
                         return (
                             <div className="list-group-item d-flex align-items-center justify-content-between py-3" key={key}>
                                 <div>
                                     <span className="fw-regular">{key}</span>
                                 </div>
                                 <div className="text-end">
-                                    <span className="fw-regular">{value?.rate}</span>
+                                    <span className="fw-regular">{Number(value?.rate).toFixed(2)}</span>
                                 </div>
                             </div>
                         )

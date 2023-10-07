@@ -1,7 +1,9 @@
-import authServices from '@/services/auth/auth.services';
 import { useState } from 'react';
+import { useAuthContext } from '@/context/auth/auth.context';
 
 const AuthForm = () => {
+    const { login, signup }: any = useAuthContext();
+
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -13,14 +15,6 @@ const AuthForm = () => {
             ...formData,
             [name]: value,
         });
-    };
-
-    const handleLogin = () => {
-        authServices.login(formData)
-    };
-
-    const handleSignup = () => {
-        authServices.signup(formData)
     };
 
     return (
@@ -51,10 +45,10 @@ const AuthForm = () => {
             </div>
             <div className="col-12"></div>
             <div className="col-6">
-                <button className="btn btn-primary btn-lg fw-regular lh-lg w-100" onClick={handleLogin}>Login</button>
+                <button className="btn btn-primary btn-lg fw-regular lh-lg w-100" onClick={login(formData)}>Login</button>
             </div>
             <div className="col-6">
-                <button className="btn btn-outline-primary btn-lg fw-regular lh-lg w-100" onClick={handleSignup}>Signup</button>
+                <button className="btn btn-outline-primary btn-lg fw-regular lh-lg w-100" onClick={signup(formData)}>Signup</button>
             </div>
         </div>
     );

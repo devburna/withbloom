@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useCoinContext } from "@/context/coin/coin.context";
 
 const ExchangeRateWidget = (data: any) => {
-    const items = Object.entries(data.data);
+    const { coins, searchCoins }: any = useCoinContext();
+    const [value, setValue] = useState();
 
     const [formData, setFormData] = useState({
         currency: "",
-        amount: '',
-        value: 0,
+        amount: "",
     });
 
     const handleInputChange = (e: any) => {
@@ -17,13 +18,20 @@ const ExchangeRateWidget = (data: any) => {
         });
     };
 
+    useEffect(() => {
+        const value = coins.find((item) => item[0] === formData.currency);
+
+        setValue(value)
+
+    }, [formData.currency])
+
     return (
         <div className="row g-3 g-lg-4">
             <div className="col-12">
                 <label htmlFor="currency" className="fw-regular small mb-2">Choose currency</label>
                 <select id="currency" className="form-select form-select-lg shadow-none fw-regular lh-lg p-3 px-4" name="currency" onChange={handleInputChange}>
                     <option defaultValue={""}>Tap to select</option>
-                    {items.length ? items.map(([key, value]: any) => {
+                    {coins.length ? coins.map(([key, value]: any) => {
                         return (
                             <option value={key} key={key}>{key}</option>
                         )
@@ -37,17 +45,18 @@ const ExchangeRateWidget = (data: any) => {
                 <label htmlFor="amount" className="fw-regular small mb-2">Amount to convert</label>
                 <input id="amount" type="number" inputMode="decimal" className="form-control form-control-lg shadow-none fw-regular text-center lh-lg p-3 px-4" placeholder="0.00" name="amount" value={formData.amount} onChange={handleInputChange} />
             </div>
-            <div className="col-12 my-0">
-                <div className="text-center text-muted fw-regular border-start border-end small p-4 mx-4">
-                    {formData.currency ? (<span>1 {formData.currency} ~ {data.data[formData.currency].rate}</span>) : ''}
+            {value ? (<>
+                <div className="col-12 my-0">
+                    <div className="text-center text-muted fw-regular border-start border-end small p-4 mx-4">
+                        1 {formData.currency} ≈ {value[1].rate}
+                    </div>
                 </div>
-            </div>
-            <div className="col-12 my-0">
-                <div className="input-group">
-                    <input id="value" type="text" className="form-control form-control-lg shadow-none fw-regular text-center lh-lg p-3 px-4" name="value" value={formData.currency ? (Number(formData.amount) * data.data[formData.currency].rate) : 0} onChange={handleInputChange}
-                        disabled readOnly />
-                </div>
-            </div>
+                <div className="col-12 my-0">
+                    <div className="input-group">
+                        <input id="value" type="text" className="form-control form-control-lg shadow-none fw-regular text-center lh-lg p-3 px-4" name="value" value={Number(formData.amount) * value[1].rate} onChange={handleInputChange}
+                            disabled readOnly />
+                    </div>
+                </div></>) : ''}
         </div>
     )
 }

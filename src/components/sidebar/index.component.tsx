@@ -1,18 +1,20 @@
-import authServices from "@/services/auth/auth.services";
 import Link from "next/link";
-
-const items = [
-    {
-        name: 'Dashboard',
-        route: '/dashboard'
-    },
-    {
-        name: 'Exchange Rate',
-        route: '/dashboard/exchange-rate'
-    }
-]
+import { useAuthContext } from "@/context/auth/auth.context";
 
 const Sidebar = () => {
+    const { logout }: any = useAuthContext();
+
+    const items = [
+        {
+            name: 'Dashboard',
+            route: '/dashboard'
+        },
+        {
+            name: 'Exchange Rate',
+            route: '/dashboard/exchange-rate'
+        }
+    ];
+
     return (
         <div className="list-group rounded-0 gap-3 h-100">
             <div className="list-group-item border-0 px-5 py-3">
@@ -25,7 +27,7 @@ const Sidebar = () => {
                     </Link>)
                 })
             }
-            <button type="button" onClick={authServices.logout} className="list-group-item border-0 rounded-0 fw-regular text-start text-danger px-5 mb-5 mt-auto">
+            <button type="button" onClick={logout} className="list-group-item border-0 rounded-0 fw-regular text-start text-danger px-5 mb-5 mt-auto">
                 Logout
             </button>
         </div>
