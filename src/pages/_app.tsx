@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { AppProps } from "next/app";
+import dynamic from "next/dynamic";
 import { AuthProvider } from "@/context/auth/auth.context";
 import { CoinProvider } from "@/context/coin/coin.context";
 import { LoadingProvider } from "@/context/loading/loading.context";
@@ -14,7 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function WithBloomApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
-    import("bootstrap/dist/js/bootstrap.bundle.min.js");
+    dynamic(import("bootstrap/dist/js/bootstrap.bundle.min.js"));
   }, []);
 
   return (

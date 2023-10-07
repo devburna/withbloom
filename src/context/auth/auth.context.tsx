@@ -2,12 +2,13 @@ import Router from 'next/router';
 import { toast } from 'react-toastify';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "@/lib/firebase/firebase.lib";
+import firebase from 'firebase/compat/app';
 
 type AuthContextType = {
     login: (payload: AuthInterface) => Promise<void>;
     signup: (payload: AuthInterface) => Promise<void>;
     logout: () => Promise<void>;
-    user: {}
+    user: {};
 };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
