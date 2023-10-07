@@ -6,7 +6,7 @@ import { useAuthContext } from "@/context/auth/auth.context";
 
 const DashboardPage = () => {
     const user = useAuthContext();
-    const [coinlist, updateCoinlist]: any = useState({});
+    const [coinlist, updateCoinlist]: any = useState();
 
     useEffect(() => {
         coinprofile.listCoins().then((res: any) => {
