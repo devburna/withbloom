@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useCoinContext } from "@/context/coin/coin.context";
 
 const ExchangeRateWidget = () => {
-    const { coins, searchCoins } = useCoinContext();
-    const [keyword, setKeyword] = useState('');
-    const [value, setValue] = useState();
+    const { coins, searchCoins }: any = useCoinContext();
+    const [keyword, setKeyword]: any = useState('');
+    const [value, setValue]: any = useState();
     const [formData, setFormData] = useState({ currency: "", amount: "" });
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
     useEffect(() => {
-        const selectedCoin = coins.find(([key]) => key === formData.currency);
+        const selectedCoin = coins.find(([key]: [any]) => key === formData.currency);
         setValue(selectedCoin);
     }, [formData.currency]);
 
@@ -50,7 +50,7 @@ const ExchangeRateWidget = () => {
                             </div>
                         </li>
                         {coins.length ? (
-                            coins.map(([key]) => (
+                            coins.map(([key]: [any]) => (
                                 <li key={key}>
                                     <a
                                         className="dropdown-item fw-regular py-2 small"
