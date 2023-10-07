@@ -58,7 +58,7 @@ const ExchangeRateWidget = () => {
             </div>
             <div className="col-12 my-0">
                 <div className="text-center text-muted fw-regular border-start border-end small p-4 mx-4">
-                    {formData.currency ? `1 ${formData.currency} ≈ ${exchangeRate.toFixed(2)}` : ''}
+                    {formData.currency ? `1 ${formData.currency} ≈ ${exchangeRate}` : ''}
                 </div>
             </div>
             <div className="col-12 my-0">
@@ -66,9 +66,9 @@ const ExchangeRateWidget = () => {
                     <Input
                         id="value"
                         type="text"
-                        style="form-control-lg fw-regular text-center lh-lg p-3 px-4"
+                        style="form-control-lg fw-regular text-center p-3 px-4"
                         name="value"
-                        value={convertedAmount.toFixed(2) || 'Select currency'}
+                        value={convertedAmount || ''}
                         readOnly={true}
                     />
                 </div>
