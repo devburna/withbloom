@@ -20,15 +20,16 @@ const LoginForm = () => {
 
     const handleLogin = (e: any) => {
         e.preventDefault();
-        
+
         login(formData)
     };
 
     return (
-        <form onSubmit={handleLogin} className="row g-4">
+        <form id="login-form" onSubmit={handleLogin} className="row g-4">
             <div className="col-12">
                 <label htmlFor="email" className="fw-regular small mb-2">Email Address</label>
                 <input
+                    form="login-form"
                     className="form-control form-control-lg shadow-none lh-lg"
                     id="email"
                     type="email"
@@ -43,6 +44,7 @@ const LoginForm = () => {
                 <label htmlFor="password" className="fw-regular small mb-2">Password</label>
                 <div className="input-group">
                     <input
+                        form="login-form"
                         className="form-control form-control-lg shadow-none lh-lg"
                         id="password"
                         type="password"
@@ -56,10 +58,10 @@ const LoginForm = () => {
             </div>
             <div className="col-12"></div>
             <div className="col-lg-12">
-                <button type="submit" className="btn btn-primary btn-lg fw-regular lh-lg w-100" >Continue</button>
+                <button form="login-form" type="submit" className="btn btn-primary btn-lg fw-regular lh-lg w-100" >Continue</button>
             </div>
             <div className="col-lg-12">
-                <span className="text-muted small">Don have an account? <Link href="/signup" className="fw-regular">Signup</Link></span>
+                <span className="text-muted small">Don't have an account? <Link href="/signup" className="fw-regular">Signup</Link></span>
             </div>
         </form>
     );
