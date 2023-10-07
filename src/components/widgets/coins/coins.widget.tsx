@@ -22,9 +22,9 @@ const CoinsWidget = () => {
                         <table className="table lh-lg">
                             <thead className="small">
                                 <tr>
-                                    <th>Currency Pair</th>
-                                    <th className="d-none d-md-block ">Key</th>
-                                    <th className="text-end text-md-start">Rate</th>
+                                    <th className="px-0">Currency Pair</th>
+                                    <th className="px-0 d-none d-md-block ">Key</th>
+                                    <th className="px-0 text-end text-md-start">Rate</th>
                                 </tr>
                             </thead>
                             <tbody className="small">
@@ -32,10 +32,10 @@ const CoinsWidget = () => {
                                     coins.map(([key, value]: [string, any]) => {
                                         return (
                                             <tr key={key}>
-                                                <td className="py-3"><span>{key}</span>
+                                                <td className="px-0 py-3"><span>{key}</span>
                                                     <p className="d-block d-md-none text-muted small mb-0">Key: {value?.key}</p></td>
-                                                <td className="d-none d-md-block py-3">{value?.key}</td>
-                                                <td className="text-end text-md-start py-3">{Number(value?.rate).toFixed(2)}</td>
+                                                <td className="px-0 d-none d-md-block py-3">{value?.key}</td>
+                                                <td className="px-0 text-end text-md-start py-3">{Number(value?.rate).toFixed(2)}</td>
                                             </tr>
                                         )
                                     })
