@@ -79,8 +79,7 @@ const SignupForm = () => {
             </div>
             <div className="col-lg-12">
                 <span className="text-muted small">
-                    Already have an account?{' '}
-                    <Link href="/" className="fw-regular">
+                    Already have an account? <Link href="/" className="fw-regular">
                         Login
                     </Link>
                 </span>

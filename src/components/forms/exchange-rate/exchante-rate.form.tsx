@@ -27,7 +27,7 @@ const ExchangeRateWidget = () => {
 
     useEffect(() => {
         searchCoins(keyword);
-    }, [keyword]);
+    }, [keyword, searchCoins]);
 
     const exchangeRate = value ? value[1].rate : null;
     const convertedAmount = Number(formData.amount) * exchangeRate;

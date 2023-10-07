@@ -16,7 +16,7 @@ export default function AuthLayout({
   return (
     <>
       <Head>
-        <title>{title} - Bloom</title>
+        <title>{title ? `${title} - ` : ''}Bloom</title>
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
