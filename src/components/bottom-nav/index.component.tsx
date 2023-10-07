@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const BottomNav = () => {
+    const router = useRouter();
+
     const items = [
         {
             name: 'Dashboard',
@@ -17,7 +20,7 @@ const BottomNav = () => {
             <div className="row justify-content-around">
                 {
                     items.map((value, key) => {
-                        return (<Link href={value.route} className="col-auto py-3" key={key}>
+                        return (<Link href={value.route} className={`col-auto text-${router.pathname === value.route ? "primary" : "dark"} py-3 `} key={key}>
                             {value.name}
                         </Link>)
                     })
