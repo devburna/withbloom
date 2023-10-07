@@ -37,8 +37,8 @@ const ExchangeRateWidget = () => {
                     >
                         {formData.currency || 'Tap to select'}
                     </button>
-                    <ul className="dropdown-menu lh-lg w-100">
-                        <li className="my-2">
+                    <ul className="dropdown-menu lh-lg w-100 py-0" style={{ height: 300, overflow: "scroll" }}>
+                        <li className="bg-white py-3 sticky-top">
                             <div className="dropdown-item bg-transparent">
                                 <input
                                     type="search"
@@ -66,7 +66,7 @@ const ExchangeRateWidget = () => {
                             ))
                         ) : (
                             <li>
-                                <div className="dropdown-item py-2 small">No data found</div>
+                                <div className="dropdown-item bg-transparent py-2 small">No data found</div>
                             </li>
                         )}
                     </ul>
