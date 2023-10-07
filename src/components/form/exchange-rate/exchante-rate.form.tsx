@@ -30,7 +30,7 @@ const ExchangeRateWidget = () => {
                 <label htmlFor="currency" className="fw-regular small mb-2">Choose currency</label>
                 <div className="dropdown">
                     <button
-                        className="form-control form-control-lg shadow-none fw-regular text-start lh-lg p-3 px-4"
+                        className={`form-control form-control-lg shadow-none fw-regular text-start lh-lg p-3 px-4 text-${formData.currency ? '' : 'muted'}`}
                         type="button"
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
