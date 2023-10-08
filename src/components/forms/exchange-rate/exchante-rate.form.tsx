@@ -70,6 +70,7 @@ const ExchangeRateWidget = () => {
                         name="value"
                         value={convertedAmount || ''}
                         readOnly={true}
+                        aria-labelledby="value"
                     />
                 </div>
             </div>
