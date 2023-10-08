@@ -36,7 +36,7 @@ export function CoinProvider({ children }: { children: React.ReactNode }) {
         };
 
         fetchData();
-    }, []);
+    }, [setLoading]);
 
     const searchCoins = (keyword: string) => {
         setSearchKeyword(keyword);
