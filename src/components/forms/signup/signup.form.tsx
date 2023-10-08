@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuthContext } from '@/context/auth/auth.context';
 import Label from '@/components/forms/label/label.component';
@@ -74,6 +74,7 @@ const SignupForm = () => {
             <div className="col-lg-12">
                 <Button
                     form="signup-form"
+                    id="submit"
                     type="submit"
                     style="btn-primary btn-lg lh-lg w-100"
                     text="Continue"
