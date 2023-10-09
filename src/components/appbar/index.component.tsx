@@ -1,6 +1,6 @@
 import React from "react";
-import { useAuthContext } from "@/context/auth/auth.context";
-import Button from "@/components/forms/button/button.form";
+import { useAuthContext } from "../../context/auth/auth.context";
+import Button from "../../components/forms/button/button.form";
 
 const AppBar = ({ page }: { page: string }) => {
     const { logout }: any = useAuthContext();

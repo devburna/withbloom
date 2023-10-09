@@ -1,4 +1,4 @@
-import coinprofile from '@/lib/coinprofile/coinprofile.lib';
+import coinprofile from '../../lib/coinprofile/coinprofile.lib';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useLoadingContext } from '../loading/loading.context';
 

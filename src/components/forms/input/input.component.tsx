@@ -1,12 +1,13 @@
 import React from "react";
 
-const Input = ({ id, value, onChange, type, inputMode, name, style, placeholder, min, readOnly, required }: any) => {
+const Input = ({ form, id, value, onChange, type, inputMode, name, className, placeholder, min, readOnly, required }: any) => {
     return (
         <input
+            form={form}
             id={id}
             type={type}
             inputMode={inputMode}
-            className={`form-control shadow-none lh-lg ${style}`}
+            className={`form-control shadow-none lh-lg ${className}`}
             placeholder={placeholder}
             min={min}
             name={name}
@@ -14,6 +15,7 @@ const Input = ({ id, value, onChange, type, inputMode, name, style, placeholder,
             onChange={onChange}
             readOnly={readOnly}
             required={required}
+            data-testid={id}
         />
     );
 };

@@ -1,19 +1,21 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import Link from 'next/link';
-import { useAuthContext } from '@/context/auth/auth.context';
-import Label from '@/components/forms/label/label.component';
-import Input from '@/components/forms/input/input.component';
-import Button from '@/components/forms/button/button.form';
-import { AuthInterface } from '@/interface/auth/auth.interface';
+import { useAuthContext } from '../../../context/auth/auth.context';
+import Label from '../../../components/forms/label/label.component';
+import Input from '../../../components/forms/input/input.component';
+import Button from '../../../components/forms/button/button.form';
+import { AuthInterface } from '../../../interface/auth/auth.interface';
 
 const SignupForm = () => {
     const { signup } = useAuthContext();
 
-    const [formData, setFormData] = useState<AuthInterface>({
-        username: "",
-        email: "",
-        password: "",
-    });
+    const initialFormData: AuthInterface = {
+        username: '',
+        email: '',
+        password: '',
+    };
+
+    const [formData, setFormData] = useState<AuthInterface>(initialFormData);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -31,7 +33,7 @@ const SignupForm = () => {
     return (
         <form id="signup-form" onSubmit={handleSignup} className="row g-4">
             <div className="col-12">
-                <Label id="username" text="Username" />
+                <Label htmlFor="username" text="Username" />
                 <Input
                     form="signup-form"
                     id="username"
@@ -44,13 +46,13 @@ const SignupForm = () => {
                 />
             </div>
             <div className="col-12">
-                <Label id="email" text="Email Address" />
+                <Label htmlFor="email" text="Email Address" />
                 <Input
                     form="signup-form"
                     id="email"
                     type="email"
                     placeholder="Your email address"
-                    style="form-control-lg"
+                    className="form-control-lg"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
@@ -58,13 +60,13 @@ const SignupForm = () => {
                 />
             </div>
             <div className="col-12">
-                <Label id="password" text="Password" />
+                <Label htmlFor="password" text="Password" />
                 <Input
                     form="signup-form"
                     id="password"
                     type="password"
                     placeholder="Choose your password"
-                    style="form-control-lg"
+                    className="form-control-lg"
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
@@ -77,13 +79,14 @@ const SignupForm = () => {
                     form="signup-form"
                     id="submit"
                     type="submit"
-                    style="btn-primary btn-lg lh-lg w-100"
+                    className="btn-primary btn-lg lh-lg w-100"
                     text="Continue"
                 />
             </div>
             <div className="col-lg-12">
                 <span className="text-muted small">
-                    Already have an account? <Link href="/" className="fw-regular">
+                    Already have an account?{' '}
+                    <Link href="/" className="fw-regular">
                         Login
                     </Link>
                 </span>

@@ -1,11 +1,20 @@
-import React from "react";
-import { useLoadingContext } from "@/context/loading/loading.context";
+import React from 'react';
+import { useLoadingContext } from '../../../context/loading/loading.context';
 
-const Button = ({ id, text, type, style, onClick }: any) => {
+const Button = ({ form, id, text, type, className, onClick }: any) => {
     const { loading } = useLoadingContext();
 
     return (
-        <button form={id} type={type} className={`btn fw-regular ${style}`} onClick={onClick} disabled={loading}>{loading ? 'Please wait...' : text}</button>
+        <button
+            form={form}
+            type={type}
+            className={`btn fw-regular ${className}`}
+            onClick={onClick}
+            disabled={loading}
+            data-testid={id}
+        >
+            {loading ? 'Please wait...' : text}
+        </button>
     );
 };
 

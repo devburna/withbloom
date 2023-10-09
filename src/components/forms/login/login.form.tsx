@@ -1,18 +1,20 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import Link from 'next/link';
-import { useAuthContext } from '@/context/auth/auth.context';
-import Label from '@/components/forms/label/label.component';
-import Input from '@/components/forms/input/input.component';
-import Button from '@/components/forms/button/button.form';
-import { AuthInterface } from '@/interface/auth/auth.interface';
+import { useAuthContext } from '../../../context/auth/auth.context';
+import Label from '../../../components/forms/label/label.component';
+import Input from '../../../components/forms/input/input.component';
+import Button from '../../../components/forms/button/button.form';
+import { AuthInterface } from '../../../interface/auth/auth.interface';
 
 const LoginForm = () => {
   const { login } = useAuthContext();
 
-  const [formData, setFormData] = useState<AuthInterface>({
-    email: "",
-    password: "",
-  });
+  const initialFormData: AuthInterface = {
+    email: '',
+    password: '',
+  };
+
+  const [formData, setFormData] = useState<AuthInterface>(initialFormData);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -30,13 +32,13 @@ const LoginForm = () => {
   return (
     <form id="login-form" onSubmit={handleLogin} className="row g-4">
       <div className="col-12">
-        <Label id="email" text="Email Address" />
+        <Label htmlFor="email" text="Email Address" />
         <Input
           form="login-form"
           id="email"
           type="email"
           placeholder="Your email address"
-          style="form-control-lg"
+          className="form-control-lg"
           name="email"
           value={formData.email}
           onChange={handleInputChange}
@@ -44,13 +46,13 @@ const LoginForm = () => {
         />
       </div>
       <div className="col-12">
-        <Label id="password" text="Password" />
+        <Label htmlFor="password" text="Password" />
         <Input
           form="login-form"
           id="password"
           type="password"
           placeholder="Choose your password"
-          style="form-control-lg"
+          className="form-control-lg"
           name="password"
           value={formData.password}
           onChange={handleInputChange}
@@ -63,7 +65,7 @@ const LoginForm = () => {
           form="login-form"
           id="submit"
           type="submit"
-          style="btn-primary btn-lg lh-lg w-100"
+          className="btn-primary btn-lg lh-lg w-100"
           text="Continue"
         />
       </div>

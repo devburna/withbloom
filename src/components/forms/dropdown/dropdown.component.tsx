@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ options, onSelect, placeholder, style }: any) => {
+const Dropdown = ({ options, onSelect, placeholder, className }: any) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("");
 
@@ -13,7 +13,7 @@ const Dropdown = ({ options, onSelect, placeholder, style }: any) => {
     return (
         <div className="dropdown">
             <button
-                className={`form-control shadow-none fw-regular text-start lh-lg p-3 px-4 text-${selectedOption ? '' : 'muted'} ${style}`}
+                className={`form-control shadow-none fw-regular text-start lh-lg p-3 px-4 text-${selectedOption ? '' : 'muted'} ${className}`}
                 type="button"
                 data-bs-toggle="dropdown"
                 aria-expanded={isOpen}
