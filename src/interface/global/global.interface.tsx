@@ -4,3 +4,8 @@ interface CoinInterface {
         key: string;
     };
 }
+
+interface ExchangeRateInterface {
+    currency: string;
+    amount: string;
+}

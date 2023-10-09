@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import { useCoinContext } from "@/context/coin/coin.context";
 import Dropdown from "@/components/forms/dropdown/dropdown.component";
 import Input from "@/components/forms/input/input.component";
 import Label from "@/components/forms/label/label.component";
 
 const ExchangeRateWidget = () => {
-    const { coins, searchCoins }: any = useCoinContext();
-    const [keyword, setKeyword]: any = useState('');
-    const [value, setValue]: any = useState();
-    const [formData, setFormData] = useState({ currency: "", amount: "" });
+    const { coins, searchCoins } = useCoinContext();
+    const [keyword, setKeyword] = useState<string>('');
+    const [value, setValue] = useState<[string, { rate: number }] | null>(null);
+    const [formData, setFormData] = useState<ExchangeRateInterface>({ currency: "", amount: "" });
 
-    const handleInputChange = (e: any) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
@@ -30,7 +30,7 @@ const ExchangeRateWidget = () => {
     }, [keyword, searchCoins]);
 
     const exchangeRate = value ? value[1].rate : null;
-    const convertedAmount = Number(formData.amount) * exchangeRate;
+    const convertedAmount = Number(formData.amount) * (exchangeRate || 0);
 
     return (
         <div className="row g-3 g-lg-4">

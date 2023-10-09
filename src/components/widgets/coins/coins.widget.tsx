@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useCoinContext } from "@/context/coin/coin.context";
 
 const CoinsWidget = () => {
-    const { coins, searchCoins }: any = useCoinContext();
-    const [keyword, setKeyword]: any = useState('');
+    const { coins, searchCoins } = useCoinContext();
+    const [keyword, setKeyword] = useState('');
 
     useEffect(() => {
         searchCoins(keyword);

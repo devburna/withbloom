@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import Link from 'next/link';
 import { useAuthContext } from '@/context/auth/auth.context';
 import Label from '@/components/forms/label/label.component';
@@ -6,15 +6,15 @@ import Input from '@/components/forms/input/input.component';
 import Button from '@/components/forms/button/button.form';
 
 const SignupForm = () => {
-    const { signup }: any = useAuthContext();
+    const { signup } = useAuthContext();
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<AuthInterface>({
         username: "",
         email: "",
         password: "",
     });
 
-    const handleInputChange = (e: any) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -22,7 +22,7 @@ const SignupForm = () => {
         });
     };
 
-    const handleSignup = (e: any) => {
+    const handleSignup = (e: FormEvent) => {
         e.preventDefault();
         signup(formData);
     };
