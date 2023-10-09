@@ -1,3 +1,4 @@
+import React from "react";
 import AuthLayout from "@/layouts/auth/auth.layout";
 import ExchangeRateWidget from "@/components/forms/exchange-rate/exchante-rate.form";
 

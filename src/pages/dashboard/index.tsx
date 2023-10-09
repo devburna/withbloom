@@ -1,3 +1,4 @@
+import React from "react";
 import AuthLayout from "@/layouts/auth/auth.layout";
 import CoinsWidget from "@/components/widgets/coins/coins.widget";
 import { useAuthContext } from "@/context/auth/auth.context";

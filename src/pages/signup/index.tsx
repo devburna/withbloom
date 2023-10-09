@@ -1,3 +1,4 @@
+import React from "react";
 import GuestLayout from "@/layouts/guest/guest.layout";
 import SignupForm from "@/components/forms/signup/signup.form";
 

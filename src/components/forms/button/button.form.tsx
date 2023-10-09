@@ -1,5 +1,5 @@
-import { useLoadingContext } from "@/context/loading/loading.context";
 import React from "react";
+import { useLoadingContext } from "@/context/loading/loading.context";
 
 const Button = ({ id, text, type, style, onClick }: any) => {
     const { loading } = useLoadingContext();

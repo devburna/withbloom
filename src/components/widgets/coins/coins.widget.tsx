@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useCoinContext } from "@/context/coin/coin.context";
 
 const CoinsWidget = () => {
