@@ -4,12 +4,13 @@ import LoginForm from '../../components/forms/login/login.form';
 import { LoadingProvider } from '../../context/loading/loading.context';
 import { useAuthContext } from '../../context/auth/auth.context';
 
-jest.mock('../../lib/firebase/firebase.lib');
+jest.mock('../../context/auth/auth.context', () => ({
+    useAuthContext: () => ({
+        login: jest.fn().mockResolvedValue({}),
+    }),
+}));
 
 test('User can login successfully', async () => {
-    const authContext = useAuthContext();
-
-    authContext.login = jest.fn().mockResolvedValue({});
 
     const { getByTestId } = render(<LoadingProvider>
         <LoginForm />
@@ -27,6 +28,6 @@ test('User can login successfully', async () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-        expect(jest.fn()).toHaveBeenCalledWith(email, password,);
+        expect(useAuthContext().login).toHaveBeenCalledWith(email, password);
     });
 });
