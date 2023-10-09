@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useCoinContext } from "@/context/coin/coin.context";
+import { ExchangeRateInterface } from "@/interface/global/global.interface";
 
 const CoinsWidget = () => {
     const { coins, searchCoins } = useCoinContext();

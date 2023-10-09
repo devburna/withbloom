@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "@/lib/firebase/firebase.lib";
 import { useLoadingContext } from '../loading/loading.context';
+import { AuthInterface } from '@/interface/auth/auth.interface';
 
 type AuthContextType = {
     login: (payload: AuthInterface) => Promise<void>;

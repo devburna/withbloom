@@ -1,16 +1,16 @@
-interface CoinInterface {
+export interface CoinInterface {
     [key: string]: {
         rate: number;
         key: string;
     };
 }
 
-interface ExchangeRateInterface {
+export interface ExchangeRateInterface {
     key: string;
     rate: number;
 }
 
-interface ExchangeRateFormInterface {
+export interface ExchangeRateFormInterface {
     currency: string;
     amount: string;
 }

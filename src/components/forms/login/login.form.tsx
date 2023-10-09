@@ -4,6 +4,7 @@ import { useAuthContext } from '@/context/auth/auth.context';
 import Label from '@/components/forms/label/label.component';
 import Input from '@/components/forms/input/input.component';
 import Button from '@/components/forms/button/button.form';
+import { AuthInterface } from '@/interface/auth/auth.interface';
 
 const LoginForm = () => {
   const { login } = useAuthContext();

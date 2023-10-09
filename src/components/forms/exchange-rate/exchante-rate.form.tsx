@@ -3,6 +3,7 @@ import { useCoinContext } from "@/context/coin/coin.context";
 import Dropdown from "@/components/forms/dropdown/dropdown.component";
 import Input from "@/components/forms/input/input.component";
 import Label from "@/components/forms/label/label.component";
+import { ExchangeRateFormInterface, ExchangeRateInterface } from "@/interface/global/global.interface";
 
 const ExchangeRateWidget = () => {
     const { coins, searchCoins } = useCoinContext();
