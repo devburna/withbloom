@@ -5,7 +5,7 @@ import { useAuthContext } from "@/context/auth/auth.context";
 const Sidebar = () => {
     const router = useRouter();
 
-    const { logout }: any = useAuthContext();
+    const { logout } = useAuthContext();
 
     const items = [
         {

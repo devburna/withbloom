@@ -3,7 +3,7 @@ import { useCoinContext } from "@/context/coin/coin.context";
 
 const CoinsWidget = () => {
     const { coins, searchCoins } = useCoinContext();
-    const [keyword, setKeyword] = useState('');
+    const [keyword, setKeyword] = useState<string>('');
 
     useEffect(() => {
         searchCoins(keyword);
@@ -29,7 +29,7 @@ const CoinsWidget = () => {
                             </thead>
                             <tbody className="small">
                                 {
-                                    coins.map(([key, value]: [string, any]) => {
+                                    coins.map(([key, value]: [string, ExchangeRateInterface]) => {
                                         return (
                                             <tr key={key}>
                                                 <td className="px-0 py-3"><span>{key}</span>

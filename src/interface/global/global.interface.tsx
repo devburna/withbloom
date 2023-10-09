@@ -6,6 +6,11 @@ interface CoinInterface {
 }
 
 interface ExchangeRateInterface {
+    key: string;
+    rate: number;
+}
+
+interface ExchangeRateFormInterface {
     currency: string;
     amount: string;
 }

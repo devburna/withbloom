@@ -7,8 +7,8 @@ import Label from "@/components/forms/label/label.component";
 const ExchangeRateWidget = () => {
     const { coins, searchCoins } = useCoinContext();
     const [keyword, setKeyword] = useState<string>('');
-    const [value, setValue] = useState<[string, { rate: number }] | null>(null);
-    const [formData, setFormData] = useState<ExchangeRateInterface>({ currency: "", amount: "" });
+    const [value, setValue] = useState<[string, ExchangeRateInterface] | null>(null);
+    const [formData, setFormData] = useState<ExchangeRateFormInterface>({ currency: "", amount: "" });
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
