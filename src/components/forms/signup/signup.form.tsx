@@ -14,7 +14,7 @@ const SignupForm = () => {
         password: "",
     });
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -22,7 +22,7 @@ const SignupForm = () => {
         });
     };
 
-    const handleSignup = (e: FormEvent) => {
+    const handleSignup = (e: any) => {
         e.preventDefault();
         signup(formData);
     };

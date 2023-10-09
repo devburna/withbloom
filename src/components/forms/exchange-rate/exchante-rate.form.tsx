@@ -10,7 +10,7 @@ const ExchangeRateWidget = () => {
     const [value, setValue] = useState<[string, ExchangeRateInterface] | null>(null);
     const [formData, setFormData] = useState<ExchangeRateFormInterface>({ currency: "", amount: "" });
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };

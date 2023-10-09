@@ -13,7 +13,7 @@ const LoginForm = () => {
     password: "",
   });
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: any) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -21,7 +21,7 @@ const LoginForm = () => {
     });
   };
 
-  const handleLogin = (e: FormEvent) => {
+  const handleLogin = (e: any) => {
     e.preventDefault();
     login(formData);
   };
