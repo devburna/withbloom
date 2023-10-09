@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    transform: {
-        "\\.[jt]sx?$": "babel-jest",
-        "\\.css$": "some-css-transformer",
-    }
-}
+const nextConfig = {}
 
 module.exports = nextConfig

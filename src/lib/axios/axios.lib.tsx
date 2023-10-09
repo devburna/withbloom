@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an instance of Axios with custom configurations
 const axiosInstance = axios.create({
-    baseURL: "https://staging-biz.coinprofile.co/v3",
+    baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
     headers: {
         'Content-Type': 'application/json',
         // You can add other headers as needed, such as authentication tokens
