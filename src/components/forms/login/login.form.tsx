@@ -9,8 +9,8 @@ const LoginForm = () => {
   const { login } = useAuthContext();
 
   const [formData, setFormData] = useState<AuthInterface>({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

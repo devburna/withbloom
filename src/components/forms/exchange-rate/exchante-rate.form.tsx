@@ -21,7 +21,7 @@ const ExchangeRateWidget = () => {
     };
 
     useEffect(() => {
-        const selectedCoin = coins.find(([key]: [any]) => key === formData.currency);
+        const selectedCoin = coins.find(([key]: [string]) => key === formData.currency);
         setValue(selectedCoin);
     }, [formData.currency, coins]);
 
@@ -38,7 +38,7 @@ const ExchangeRateWidget = () => {
                 <Label id="currency" text="Choose currency" />
                 <Dropdown
                     style="form-control-lg"
-                    options={coins.map(([key]: [any]) => key)}
+                    options={coins.map(([key]: [string]) => key)}
                     onSelect={handleCurrencySelect}
                     placeholder="Tap to select"
                 />
