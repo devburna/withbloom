@@ -12,7 +12,7 @@ const AppBar = ({ page }: { page: string }) => {
                     <h6 className="fw-regular mb-0">{page}</h6>
                 </div>
                 <div className="col-auto">
-                    <Button type="button" style="btn-outline-danger btn-sm" text="Logout" onClick={logout} />
+                    <Button type="button" className="btn-outline-danger btn-sm" text="Logout" onClick={logout} />
                 </div>
             </div>
         </div>
