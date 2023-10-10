@@ -14,6 +14,14 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+export const useAuthContext = () => {
+    const context = useContext(AuthContext);
+    if (context === undefined) {
+        throw new Error('useAuthContext must be used within an AuthProvider');
+    }
+    return context;
+};
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [user, setUser] = useState({});
     const { setLoading } = useLoadingContext();
@@ -32,7 +40,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
 
     const login = async (payload: AuthInterface) => {
-
+        
         setLoading(true);
 
         await signInWithEmailAndPassword(auth, payload.email, payload.password).then(() => {
@@ -76,7 +84,3 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         </AuthContext.Provider>
     );
 }
-
-export const useAuthContext = () => {
-    return useContext(AuthContext);
-};
