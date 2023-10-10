@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { AppProps } from "next/app";
 import dynamic from "next/dynamic";
-import { AuthProvider } from "../context/auth/auth.context";
 import { LoadingProvider } from "../context/loading/loading.context";
+import { AuthProvider } from "../context/auth/auth.context";
+import { CoinProvider } from "../context/coin/coin.context";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/css/globals.css';
@@ -20,8 +21,10 @@ function WithBloomApp({ Component, pageProps }: AppProps) {
   return (
     <LoadingProvider>
       <AuthProvider>
-        <Component {...pageProps} />
-        <ToastContainer />
+        <CoinProvider>
+          <Component {...pageProps} />
+          <ToastContainer />
+        </CoinProvider>
       </AuthProvider>
     </LoadingProvider>
   );
