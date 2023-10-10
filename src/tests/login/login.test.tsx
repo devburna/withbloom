@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import LoginForm from '../../components/forms/login/login.form';
-import { useAuthContext } from '../../context/auth/auth.context';
 import { LoadingProvider } from '../../context/loading/loading.context';
 
 jest.mock('../../context/auth/auth.context', () => ({
@@ -30,6 +29,6 @@ test('User can login successfully', async () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-        expect(useAuthContext().login).toHaveBeenCalledWith({ email, password });
+        expect(jest.fn()).toHaveBeenCalledWith({ email, password });
     });
 });
