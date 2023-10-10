@@ -25,9 +25,9 @@ const SignupForm = () => {
         });
     };
 
-    const handleSignup = (e: FormEvent) => {
+    const handleSignup = async (e: FormEvent) => {
         e.preventDefault();
-        signup(formData);
+        await signup(formData);
     };
 
     return (

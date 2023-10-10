@@ -24,9 +24,9 @@ const LoginForm = () => {
     });
   };
 
-  const handleLogin = (e: FormEvent) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
-    login(formData);
+    await login(formData);
   };
 
   return (
