@@ -1,19 +1,18 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import SignupForm from '../../components/forms/signup/signup.form';
+import { AuthProvider, useAuthContext } from '../../context/auth/auth.context';
 import { LoadingProvider } from '../../context/loading/loading.context';
-import { useAuthContext } from '../../context/auth/auth.context';
 
-jest.mock('../../context/auth/auth.context', () => ({
-    useAuthContext: () => ({
-        signup: jest.fn().mockResolvedValue({}),
-    }),
-}));
+jest.mock('../../lib/firebase/firebase.lib');
 
 test('User can signup successfully', async () => {
+    const authContext = useAuthContext();
+
+    authContext.signup = jest.fn().mockResolvedValue({});
 
     const { getByTestId } = render(<LoadingProvider>
-        <SignupForm />
+        <AuthProvider><SignupForm /></AuthProvider>
     </LoadingProvider>);
 
     const username = 'Devburna';
@@ -31,6 +30,6 @@ test('User can signup successfully', async () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-        expect(useAuthContext().signup).toHaveBeenCalledWith(username, email, password);
+        expect(jest.fn()).toHaveBeenCalledWith({ username, email, password });
     });
 });
