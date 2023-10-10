@@ -40,7 +40,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
 
     const login = async (payload: AuthInterface) => {
-        
         setLoading(true);
 
         await signInWithEmailAndPassword(auth, payload.email, payload.password).then(() => {

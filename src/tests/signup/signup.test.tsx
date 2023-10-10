@@ -1,24 +1,22 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import SignupForm from '../../components/forms/signup/signup.form';
-import { AuthProvider } from '../../context/auth/auth.context';
+import { useAuthContext } from '../../context/auth/auth.context';
 import { LoadingProvider } from '../../context/loading/loading.context';
 
-const mockSignup = jest.fn();
-
-const renderLoginForm = () => {
-    return render(
-        <LoadingProvider>
-            <AuthProvider>
-                <SignupForm />
-            </AuthProvider>
-        </LoadingProvider>
-    );
-};
+jest.mock('../../context/auth/auth.context', () => ({
+    useAuthContext: () => ({
+        signup: jest.fn(),
+    }),
+}));
 
 test('User can signup successfully', async () => {
 
-    const { getByTestId } = renderLoginForm();
+    const { getByTestId } = render(
+        <LoadingProvider>
+            <SignupForm />
+        </LoadingProvider>
+    );
 
     const username = 'Devburna';
     const email = 'devburna@gmail.com';
@@ -35,6 +33,6 @@ test('User can signup successfully', async () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-        expect(mockSignup).toHaveBeenCalledWith({ username, email, password });
+        expect(useAuthContext().signup).toHaveBeenCalledWith({ username, email, password });
     });
 });
