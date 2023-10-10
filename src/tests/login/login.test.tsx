@@ -4,7 +4,6 @@ import LoginForm from '../../components/forms/login/login.form';
 import { LoadingProvider } from '../../context/loading/loading.context';
 import { useAuthContext } from '../../context/auth/auth.context';
 
-// Mock the useAuthContext hook to provide a mock login function
 jest.mock('../../context/auth/auth.context', () => ({
     useAuthContext: () => ({
         login: jest.fn(),
@@ -13,7 +12,6 @@ jest.mock('../../context/auth/auth.context', () => ({
 
 describe('User can login successfully', () => {
     it('submits login form with user data', async () => {
-        // Render the LoginForm component wrapped in LoadingProvider
         const { getByTestId } = render(
             <LoadingProvider>
                 <LoginForm />
@@ -27,14 +25,10 @@ describe('User can login successfully', () => {
         const passwordInput = getByTestId('password');
         const submitButton = getByTestId('submit');
 
-        // Simulate user input
         fireEvent.change(emailInput, { target: { value: email } });
         fireEvent.change(passwordInput, { target: { value: password } });
-
-        // Simulate form submission
         fireEvent.click(submitButton);
 
-        // Wait for the login function to be called with the provided email and password
         await waitFor(() => {
             expect(useAuthContext().login).toHaveBeenCalledWith({ email, password });
         });

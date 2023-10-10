@@ -6,7 +6,7 @@ import { useAuthContext } from '../../context/auth/auth.context';
 
 jest.mock('../../context/auth/auth.context', () => ({
     useAuthContext: () => ({
-        signup: jest.fn(),
+        signup: jest.fn().mockResolvedValue({}),
     }),
 }));
 
