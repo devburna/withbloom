@@ -38,6 +38,7 @@ const ExchangeRateWidget = () => {
             <div className="col-12">
                 <Label htmlFor="currency" text="Choose currency" />
                 <Dropdown
+                    id="currencies"
                     className="form-control-lg"
                     options={coins.map(([key]: [string]) => key)}
                     onSelect={handleCurrencySelect}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ options, onSelect, placeholder, className }: any) => {
+const Dropdown = ({ id, options, onSelect, placeholder, className }: any) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState("");
 
@@ -18,6 +18,7 @@ const Dropdown = ({ options, onSelect, placeholder, className }: any) => {
                 data-bs-toggle="dropdown"
                 aria-expanded={isOpen}
                 id="dismiss"
+                data-testid={id}
             >
                 {selectedOption || placeholder}
             </button>

@@ -21,9 +21,9 @@ describe('User can login successfully', () => {
         const email = 'devburna@gmail.com';
         const password = 'devburna@gmail.com';
 
-        const emailInput = getByTestId('email');
-        const passwordInput = getByTestId('password');
-        const submitButton = getByTestId('submit');
+        const emailInput = getByTestId('email') as HTMLInputElement;
+        const passwordInput = getByTestId('password') as HTMLInputElement;
+        const submitButton = getByTestId('submit') as HTMLInputElement;
 
         fireEvent.change(emailInput, { target: { value: email } });
         fireEvent.change(passwordInput, { target: { value: password } });

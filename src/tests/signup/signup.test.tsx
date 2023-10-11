@@ -22,9 +22,9 @@ describe('User can signup successfully', () => {
         const email = 'devburna@gmail.com';
         const password = 'devburna@gmail.com';
 
-        const usernameInput = getByTestId('username');
-        const emailInput = getByTestId('email');
-        const passwordInput = getByTestId('password');
+        const usernameInput = getByTestId('username') as HTMLInputElement;
+        const emailInput = getByTestId('email') as HTMLInputElement;
+        const passwordInput = getByTestId('password') as HTMLInputElement;
         const submitButton = getByTestId('submit');
 
         fireEvent.change(usernameInput, { target: { value: username } });
