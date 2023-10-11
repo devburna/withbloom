@@ -29,8 +29,8 @@ describe('User can login successfully', () => {
         fireEvent.change(passwordInput, { target: { value: password } });
         fireEvent.click(submitButton);
 
-        await waitFor(() => {
-            expect(useAuthContext().login).toHaveBeenCalledWith({ email, password });
+        waitFor(() => {
+            expect(useAuthContext().login).toBeCalledWith({ email, password });
         });
     });
 });

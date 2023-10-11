@@ -6,7 +6,7 @@ import { useAuthContext } from '../../context/auth/auth.context';
 
 jest.mock('../../context/auth/auth.context', () => ({
     useAuthContext: () => ({
-        signup: jest.fn().mockResolvedValue({}),
+        signup: jest.fn(),
     }),
 }));
 
@@ -27,13 +27,12 @@ describe('User can signup successfully', () => {
         const passwordInput = getByTestId('password');
         const submitButton = getByTestId('submit');
 
-
         fireEvent.change(usernameInput, { target: { value: username } });
         fireEvent.change(emailInput, { target: { value: email } });
         fireEvent.change(passwordInput, { target: { value: password } });
         fireEvent.click(submitButton);
 
-        await waitFor(() => {
+        waitFor(() => {
             expect(useAuthContext().signup).toHaveBeenCalledWith({ username, email, password });
         });
     });
